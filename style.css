@@ -1,30 +1,1178 @@
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#050505;color:#f4f4f4;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 20%,rgba(110,0,110,.10),transparent 35%);z-index:-1}
-#petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
-.petal{position:absolute;top:-30px;width:12px;height:18px;border-radius:100% 0 100% 0;background:#761476;opacity:.55;animation:fall var(--time) linear var(--delay) infinite,sway 3s ease-in-out infinite}
-@keyframes fall{to{top:110vh;transform:translateX(100px) rotate(500deg);opacity:0}}
-@keyframes sway{50%{margin-left:40px}}
-.site-header{height:105px;background:rgba(0,0,0,.94);border-bottom:1px solid #292929;display:flex;align-items:center;padding:0 32px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-.logo{color:#fff;text-decoration:none;font-size:26px;font-weight:900;letter-spacing:7px}
-nav{margin-left:auto;display:flex;gap:28px}nav a{color:#999;text-decoration:none;text-transform:uppercase;font-size:12px;letter-spacing:3px}nav a:hover{color:#fff}
-.menu-toggle{display:none;margin-left:auto;background:none;border:0;color:white;font-size:28px}
-.hero{min-height:900px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:125px 25px;background:radial-gradient(ellipse at center 28%,rgba(130,0,130,.28),transparent 44%);position:relative}
-.hero h1,.page h1{font-size:clamp(65px,14vw,150px);line-height:.9;font-weight:900;letter-spacing:4px}
-.hero h1{text-shadow:0 0 6px #fff,0 0 18px rgba(255,255,255,.7),0 0 45px rgba(160,0,160,.8)}
-.eyebrow,.section-number{color:#777;letter-spacing:5px;font-size:12px;font-weight:bold}
-.eyebrow{margin-bottom:35px}.genres{margin-top:65px;color:#aaa;letter-spacing:8px;line-height:1.8;font-weight:bold}
-.button{display:inline-flex;align-items:center;justify-content:center;margin-top:60px;min-width:350px;height:88px;border:1px solid #aaa;color:white;text-decoration:none;background:transparent;font-weight:800;letter-spacing:1px;transition:.3s}
-.button:hover{background:#fff;color:#000;box-shadow:0 0 40px rgba(170,0,170,.5)}
-.hero-flower{position:absolute;font-size:360px;color:rgba(120,0,120,.025);top:120px;pointer-events:none}
-.section{max-width:1400px;margin:auto;padding:120px 6%}
-.section h2{font-size:clamp(55px,10vw,100px);line-height:.95;margin:35px 0 70px;letter-spacing:5px}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;max-width:1050px}.split p,.lead{font-size:clamp(21px,3vw,31px);line-height:1.75;color:#999;font-weight:600}
-.quote{min-height:450px;display:flex;flex-direction:column;justify-content:center}.quote p{font-size:clamp(30px,6vw,70px);font-weight:900;letter-spacing:3px;line-height:1.1}.broken-line{height:1px;background:#531053;width:100%;margin-bottom:50px}
-.track-grid{display:grid;gap:28px}.track{display:grid;grid-template-columns:70px 1fr auto;gap:25px;align-items:center;border:1px solid #333;padding:42px;color:white;text-decoration:none;background:#0d0d0d;transition:.3s}.track:hover{border-color:#888;transform:translateX(8px)}.track span,.track small{color:#666}.track strong{font-size:28px}.track small{text-transform:uppercase;letter-spacing:2px}
-.page{max-width:1400px;margin:auto;padding:100px 6%;min-height:calc(100vh - 180px)}.page h1{margin:30px 0 35px}.music-list{display:grid;gap:30px;margin-top:80px}.music-card,.member,.show{border:1px solid #333;background:#0c0c0c;padding:45px}.music-card{display:grid;grid-template-columns:1fr auto;gap:30px}.track-no{color:#6d176d;letter-spacing:3px}.music-card h2{font-size:38px;margin:12px 0}.music-card p,.member p,.show small{color:#777}.play{width:65px;height:65px;border:1px solid #777;background:none;color:#fff;border-radius:50%;cursor:pointer}.music-card audio{grid-column:1/-1;width:100%}
-.member-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-top:80px}.member{min-height:330px;display:flex;flex-direction:column;justify-content:flex-end}.member-image{height:180px;display:flex;align-items:center;justify-content:center;font-size:100px;font-weight:900;color:#181818;border:1px solid #222;margin-bottom:30px}
-.show-list{margin-top:70px}.show{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:30px}.show span{color:#6d176d;letter-spacing:3px}.show strong{font-size:28px}.contact-form{max-width:800px;margin-top:70px;display:grid;gap:28px}.contact-form label{display:grid;gap:10px;color:#888;text-transform:uppercase;letter-spacing:3px;font-size:12px}.contact-form input,.contact-form textarea{background:#0b0b0b;border:1px solid #333;color:white;padding:18px;font:inherit;outline:none}.contact-form input:focus,.contact-form textarea:focus{border-color:#8a208a}
-footer{border-top:1px solid #222;padding:70px 30px;text-align:center;color:#444;letter-spacing:5px;font-size:12px}
-@media(max-width:700px){.site-header{height:90px;padding:0 22px}.logo{font-size:20px;letter-spacing:5px}nav{display:none;position:absolute;top:90px;left:0;right:0;background:#050505;border-bottom:1px solid #333;flex-direction:column;padding:25px 30px;gap:25px}nav.open{display:flex}.menu-toggle{display:block}.hero{min-height:850px;padding-top:115px}.hero h1{font-size:76px}.genres{font-size:14px;letter-spacing:5px}.button{min-width:280px}.section,.page{padding:85px 28px}.split{grid-template-columns:1fr;gap:35px}.track{grid-template-columns:35px 1fr;padding:30px 20px}.track small{grid-column:2}.track strong{font-size:22px}.music-card{grid-template-columns:1fr}.show{grid-template-columns:1fr}.music-card audio{grid-column:1}.hero-flower{font-size:230px}}
+/* =========================================================
+   FALLEN ANGELS — MAIN STYLE
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   RESET
+--------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   BACKGROUND ATMOSPHERE
+--------------------------------------------------------- */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(110, 0, 110, 0.10),
+            transparent 35%
+        );
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   FALLING PETALS
+--------------------------------------------------------- */
+
+#petals {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+.petal {
+    position: absolute;
+
+    top: -30px;
+
+    width: 12px;
+    height: 18px;
+
+    border-radius: 100% 0 100% 0;
+
+    background: #761476;
+
+    opacity: 0.55;
+
+    animation:
+        fall var(--time) linear var(--delay) infinite,
+        sway 3s ease-in-out infinite;
+}
+
+
+/* Petal falling */
+
+@keyframes fall {
+
+    to {
+        top: 110vh;
+
+        transform:
+            translateX(100px)
+            rotate(500deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* Petal movement */
+
+@keyframes sway {
+
+    50% {
+        margin-left: 40px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.site-header {
+
+    height: 105px;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    border-bottom: 1px solid #292929;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 32px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* Band logo */
+
+.logo {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+}
+
+
+/* ---------------------------------------------------------
+   NAVIGATION
+--------------------------------------------------------- */
+
+nav {
+
+    margin-left: auto;
+
+    display: flex;
+
+    gap: 28px;
+
+}
+
+nav a {
+
+    color: #999;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    transition: 0.3s;
+
+}
+
+nav a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* Mobile menu button */
+
+.menu-toggle {
+
+    display: none;
+
+    margin-left: auto;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.hero {
+
+    min-height: 900px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 125px 25px;
+
+    position: relative;
+
+    background:
+
+        radial-gradient(
+            ellipse at center 28%,
+            rgba(130, 0, 130, 0.28),
+            transparent 44%
+        );
+
+}
+
+
+/* Giant background flower */
+
+.hero-flower {
+
+    position: absolute;
+
+    top: 120px;
+
+    font-size: 360px;
+
+    color: rgba(120, 0, 120, 0.025);
+
+    pointer-events: none;
+
+}
+
+
+/* Small eyebrow text */
+
+.eyebrow {
+
+    margin-bottom: 35px;
+
+    color: #777;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* ---------------------------------------------------------
+   HERO TITLE
+--------------------------------------------------------- */
+
+.hero h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: clamp(
+        65px,
+        14vw,
+        150px
+    );
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    color: #f5f5f5;
+
+    text-shadow:
+
+        0 0 6px #ffffff,
+
+        0 0 18px rgba(255, 255, 255, 0.7),
+
+        0 0 45px rgba(160, 0, 160, 0.8);
+
+}
+
+
+/* ---------------------------------------------------------
+   GENRE TEXT
+--------------------------------------------------------- */
+
+.genres {
+
+    margin-top: 65px;
+
+    color: #aaaaaa;
+
+    letter-spacing: 8px;
+
+    line-height: 1.8;
+
+    font-weight: bold;
+
+}
+
+
+/* ---------------------------------------------------------
+   MAIN BUTTON
+--------------------------------------------------------- */
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 60px;
+
+    min-width: 350px;
+
+    height: 88px;
+
+    border: 1px solid #aaaaaa;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    background: transparent;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+}
+
+.button:hover {
+
+    background: #ffffff;
+
+    color: #000000;
+
+    box-shadow:
+        0 0 40px rgba(170, 0, 170, 0.5);
+
+}
+
+
+/* ---------------------------------------------------------
+   SECTIONS
+--------------------------------------------------------- */
+
+.section {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 120px 6%;
+
+}
+
+
+/* Section numbers */
+
+.section-number {
+
+    color: #777;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* Big section headings */
+
+.section h2 {
+
+    font-size: clamp(
+        55px,
+        10vw,
+        100px
+    );
+
+    line-height: 0.95;
+
+    margin: 35px 0 70px;
+
+    letter-spacing: 5px;
+
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT
+--------------------------------------------------------- */
+
+.split {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    max-width: 1050px;
+
+}
+
+
+.split p {
+
+    font-size: clamp(
+        21px,
+        3vw,
+        31px
+    );
+
+    line-height: 1.75;
+
+    color: #999;
+
+    font-weight: 600;
+
+}
+
+
+/* ---------------------------------------------------------
+   QUOTE
+--------------------------------------------------------- */
+
+.quote {
+
+    min-height: 450px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+/* Purple dividing line */
+
+.broken-line {
+
+    height: 1px;
+
+    width: 100%;
+
+    background: #531053;
+
+    margin-bottom: 50px;
+
+}
+
+
+/* Quote */
+
+.quote p {
+
+    font-size: clamp(
+        30px,
+        6vw,
+        70px
+    );
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    line-height: 1.1;
+
+}
+
+
+/* ---------------------------------------------------------
+   MUSIC
+--------------------------------------------------------- */
+
+.track-grid {
+
+    display: grid;
+
+    gap: 28px;
+
+}
+
+
+/* Music card */
+
+.track {
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        1fr
+        auto;
+
+    gap: 25px;
+
+    align-items: center;
+
+    border: 1px solid #333333;
+
+    padding: 42px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background: #0d0d0d;
+
+    transition: 0.3s;
+
+}
+
+
+/* Music hover */
+
+.track:hover {
+
+    border-color: #888888;
+
+    transform: translateX(8px);
+
+    box-shadow:
+        -10px 0 35px rgba(90, 0, 90, 0.15);
+
+}
+
+
+/* Track number */
+
+.track span {
+
+    color: #666666;
+
+}
+
+
+/* Track name */
+
+.track strong {
+
+    font-size: 28px;
+
+}
+
+
+/* Genre */
+
+.track small {
+
+    color: #666666;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ---------------------------------------------------------
+   MUSIC PAGE
+--------------------------------------------------------- */
+
+.page {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 100px 6%;
+
+    min-height: calc(100vh - 180px);
+
+}
+
+
+.page h1 {
+
+    font-size: clamp(
+        65px,
+        14vw,
+        150px
+    );
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    margin: 30px 0 35px;
+
+}
+
+
+.lead {
+
+    font-size: clamp(
+        21px,
+        3vw,
+        31px
+    );
+
+    line-height: 1.75;
+
+    color: #999;
+
+    font-weight: 600;
+
+}
+
+
+/* ---------------------------------------------------------
+   MUSIC PLAYER
+--------------------------------------------------------- */
+
+.music-list {
+
+    display: grid;
+
+    gap: 30px;
+
+    margin-top: 80px;
+
+}
+
+
+.music-card {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 30px;
+
+    padding: 45px;
+
+    border: 1px solid #333333;
+
+    background: #0c0c0c;
+
+}
+
+
+.music-card h2 {
+
+    font-size: 38px;
+
+    margin: 12px 0;
+
+}
+
+
+.music-card p {
+
+    color: #777777;
+
+}
+
+
+/* Track number */
+
+.track-no {
+
+    color: #6d176d;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* Play button */
+
+.play {
+
+    width: 65px;
+
+    height: 65px;
+
+    border: 1px solid #777777;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.play:hover {
+
+    background: white;
+
+    color: black;
+
+    box-shadow:
+        0 0 25px rgba(160, 0, 160, 0.6);
+
+}
+
+
+/* Audio bar */
+
+.music-card audio {
+
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+}
+
+
+/* ---------------------------------------------------------
+   MEMBERS
+--------------------------------------------------------- */
+
+.member-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 25px;
+
+    margin-top: 80px;
+
+}
+
+
+.member {
+
+    min-height: 330px;
+
+    padding: 40px;
+
+    border: 1px solid #333333;
+
+    background: #0c0c0c;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    transition: 0.3s;
+
+}
+
+
+.member:hover {
+
+    border-color: #777777;
+
+    background: #101010;
+
+}
+
+
+/* Placeholder for member photos */
+
+.member-image {
+
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 100px;
+
+    font-weight: 900;
+
+    color: #181818;
+
+    border: 1px solid #222222;
+
+    margin-bottom: 30px;
+
+}
+
+
+.member h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.member p {
+
+    color: #777777;
+
+}
+
+
+/* ---------------------------------------------------------
+   SHOWS
+--------------------------------------------------------- */
+
+.show-list {
+
+    margin-top: 70px;
+
+}
+
+
+.show {
+
+    display: grid;
+
+    grid-template-columns:
+        120px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 45px;
+
+    border: 1px solid #333333;
+
+    background: #0c0c0c;
+
+}
+
+
+.show span {
+
+    color: #6d176d;
+
+    letter-spacing: 3px;
+
+}
+
+
+.show strong {
+
+    font-size: 28px;
+
+}
+
+
+.show small {
+
+    color: #777777;
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT FORM
+--------------------------------------------------------- */
+
+.contact-form {
+
+    max-width: 800px;
+
+    margin-top: 70px;
+
+    display: grid;
+
+    gap: 28px;
+
+}
+
+
+.contact-form label {
+
+    display: grid;
+
+    gap: 10px;
+
+    color: #888888;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+}
+
+
+.contact-form input,
+.contact-form textarea {
+
+    background: #0b0b0b;
+
+    border: 1px solid #333333;
+
+    color: white;
+
+    padding: 18px;
+
+    font: inherit;
+
+    outline: none;
+
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    border-color: #8a208a;
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+footer {
+
+    border-top: 1px solid #222222;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    color: #444444;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+
+    /* Header */
+
+    .site-header {
+
+        height: 90px;
+
+        padding: 0 22px;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+        letter-spacing: 5px;
+
+    }
+
+
+    /* Mobile menu */
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 90px;
+
+        left: 0;
+
+        right: 0;
+
+        background: #050505;
+
+        border-bottom: 1px solid #333333;
+
+        flex-direction: column;
+
+        padding: 25px 30px;
+
+        gap: 25px;
+
+    }
+
+
+    nav.open {
+
+        display: flex;
+
+    }
+
+
+    /* Hero */
+
+    .hero {
+
+        min-height: 850px;
+
+        padding-top: 115px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 76px;
+
+    }
+
+
+    .genres {
+
+        font-size: 14px;
+
+        letter-spacing: 5px;
+
+    }
+
+
+    .button {
+
+        min-width: 280px;
+
+    }
+
+
+    /* Sections */
+
+    .section,
+    .page {
+
+        padding: 85px 28px;
+
+    }
+
+
+    /* About */
+
+    .split {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    /* Music */
+
+    .track {
+
+        grid-template-columns:
+            35px
+            1fr;
+
+        padding: 30px 20px;
+
+    }
+
+
+    .track small {
+
+        grid-column: 2;
+
+    }
+
+
+    .track strong {
+
+        font-size: 22px;
+
+    }
+
+
+    /* Music cards */
+
+    .music-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .music-card audio {
+
+        grid-column: 1;
+
+    }
+
+
+    /* Shows */
+
+    .show {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* Flower */
+
+    .hero-flower {
+
+        font-size: 230px;
+
+    }
+
+}
