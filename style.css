@@ -816,26 +816,17 @@ nav a:hover {
 
 /* Placeholder for member photos */
 
-.member-image {
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
 
-    height: 180px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 100px;
-
-    font-weight: 900;
-
-    color: #181818;
-
-    border: 1px solid #222222;
-
-    margin-bottom: 30px;
-
+.member:hover .member-image img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
 }
 
 
@@ -855,75 +846,286 @@ nav a:hover {
 }
 
 
-/* ---------------------------------------------------------
-   SHOWS
---------------------------------------------------------- */
+/* =========================================================
+   SHOW PAGE
+========================================================= */
 
-.show-list {
+.show-date {
 
-    margin-top: 70px;
+    display: flex;
 
-}
-
-
-.show {
-
-    display: grid;
-
-    grid-template-columns:
-        120px
-        1fr
-        auto;
+    flex-direction: column;
 
     align-items: center;
 
-    gap: 30px;
+    justify-content: center;
 
-    padding: 45px;
+    min-width: 100px;
 
-    border: 1px solid #333333;
+    border-right: 1px solid #333333;
 
-    background: #0c0c0c;
+    padding-right: 30px;
 
 }
 
 
-.show span {
+.show-date .month {
 
-    color: #6d176d;
+    color: #761476;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+.show-date strong {
+
+    font-size: 65px;
+
+    line-height: 1;
+
+    margin: 8px 0;
+
+}
+
+
+.show-date .year {
+
+    color: #555555;
+
+    font-size: 12px;
 
     letter-spacing: 3px;
 
 }
 
 
-.show strong {
+.show-info h3 {
 
-    font-size: 28px;
+    font-size: 30px;
+
+    margin: 10px 0 15px;
 
 }
 
 
-.show small {
+.show-info p {
 
     color: #777777;
 
+    margin-top: 5px;
+
 }
 
 
-/* ---------------------------------------------------------
-   CONTACT FORM
---------------------------------------------------------- */
+.show-type {
+
+    color: #761476;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+
+}
+
+
+.show-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 130px;
+
+    height: 55px;
+
+    border: 1px solid #777777;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+
+}
+
+
+.show-button:hover {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+.show-button.disabled {
+
+    color: #444444;
+
+    border-color: #333333;
+
+    cursor: default;
+
+}
+
+
+.show-button.disabled:hover {
+
+    background: transparent;
+
+    color: #444444;
+
+}
+
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+
+
+/* Contact options */
+
+.contact-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 25px;
+
+    margin-top: 80px;
+
+}
+
+
+.contact-option {
+
+    min-height: 320px;
+
+    padding: 40px;
+
+    border: 1px solid #333333;
+
+    background: #0b0b0b;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    transition: 0.3s;
+
+}
+
+
+.contact-option:hover {
+
+    border-color: #777777;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 50px rgba(80, 0, 80, 0.15);
+
+}
+
+
+.contact-number {
+
+    color: #6d176d;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    margin-bottom: auto;
+
+}
+
+
+.contact-option h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.contact-option p {
+
+    color: #777777;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+
+}
+
+
+.contact-option a {
+
+    color: white;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #555555;
+
+    padding-bottom: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.contact-option a:hover {
+
+    color: #b84bb8;
+
+    border-color: #b84bb8;
+
+}
+
+
+/* Contact form */
+
+.contact-section {
+
+    padding-left: 0;
+
+    padding-right: 0;
+
+}
+
 
 .contact-form {
 
     max-width: 800px;
 
-    margin-top: 70px;
+    margin-top: 60px;
 
     display: grid;
 
-    gap: 28px;
+    gap: 30px;
 
 }
 
@@ -932,15 +1134,15 @@ nav a:hover {
 
     display: grid;
 
-    gap: 10px;
+    gap: 12px;
 
-    color: #888888;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
+    color: #777777;
 
     font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
 
 }
 
@@ -948,17 +1150,33 @@ nav a:hover {
 .contact-form input,
 .contact-form textarea {
 
-    background: #0b0b0b;
+    width: 100%;
+
+    background: #080808;
 
     border: 1px solid #333333;
 
     color: white;
 
-    padding: 18px;
+    padding: 20px;
 
-    font: inherit;
+    font-family: inherit;
+
+    font-size: 16px;
 
     outline: none;
+
+    resize: vertical;
+
+    transition: 0.3s;
+
+}
+
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+
+    color: #444444;
 
 }
 
@@ -968,8 +1186,129 @@ nav a:hover {
 
     border-color: #8a208a;
 
+    box-shadow:
+        0 0 20px rgba(138, 32, 138, 0.12);
+
 }
 
+
+.contact-form .button {
+
+    border: 1px solid #777777;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+}
+
+
+/* Social links */
+
+.social-links {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 20px;
+
+    max-width: 800px;
+
+}
+
+
+.social-links a {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100px;
+
+    border: 1px solid #333333;
+
+    background: #0b0b0b;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    transition: 0.3s;
+
+}
+
+
+.social-links a:hover {
+
+    background: white;
+
+    color: black;
+
+    border-color: white;
+
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .contact-options {
+
+        grid-template-columns: 1fr;
+
+        margin-top: 60px;
+
+    }
+
+
+    .contact-option {
+
+        min-height: 280px;
+
+    }
+
+
+    .contact-section {
+
+        padding-left: 0;
+
+        padding-right: 0;
+
+    }
+
+
+    .social-links {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .social-links a {
+
+        height: 80px;
+
+    }
+
+}
 
 /* ---------------------------------------------------------
    FOOTER
